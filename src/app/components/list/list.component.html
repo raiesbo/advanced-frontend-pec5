@@ -1,0 +1,7 @@
+<div class="container mt-5">
+    <h1>Star Wars Characters</h1>
+    <p>List of the Star Wars saga main characters</p>
+    <div class="list-group">
+        <app-card *ngFor="let person of people" [person]="person"></app-card>
+    </div>
+</div>
