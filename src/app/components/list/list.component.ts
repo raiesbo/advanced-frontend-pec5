@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Person } from 'src/app/models/person.interface';
 import { DataService } from 'src/app/services/data.service';
 
@@ -17,9 +17,10 @@ export class ListComponent implements OnInit {
   withGridView: boolean = false;
   displayedColumns: string[] = ['name', 'birth_year', 'gender', 'mass'];
 
+
   constructor(
     private dataService: DataService,
-    private router: Router
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -31,10 +32,16 @@ export class ListComponent implements OnInit {
       this.people = result.results;
     }, (error: any) => {
       console.log(error);
+
+      this.openSnackBar(error.message)
     })
   }
 
   toggleView(view: string): void {
     this.withGridView = view === 'grid';
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message);
   }
 }
