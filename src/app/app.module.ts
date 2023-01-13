@@ -8,6 +8,7 @@ import { CardComponent } from './components/card/card.component';
 import { DetailsComponent } from './components/details/details.component';
 import { GridComponent } from './components/grid/grid.component';
 import { ListComponent } from './components/list/list.component';
+// import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { ListComponent } from './components/list/list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    // ServiceWorkerModule.register('ngsw-worker.js', {
+    //   enabled: !isDevMode(),
+    //   // Register the ServiceWorker as soon as the application is stable
+    //   // or after 30 seconds (whichever comes first).
+    //   registrationStrategy: 'registerWhenStable:30000'
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]
