@@ -58,4 +58,8 @@ export class DetailsComponent implements OnInit {
   toogleDetailsView(): void {
     this.areDetailsVisible = !this.areDetailsVisible;
   }
+
+  navigateToHome(): void {
+    this.router.navigateByUrl('/');
+  }
 }

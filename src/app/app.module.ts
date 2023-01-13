@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -56,7 +55,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: environment.production ? '/advanced-frontend-pec5' : '/' }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
