@@ -1,3 +1,9 @@
+.page {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 30px 20px;
+}
+
 .cardsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="page">
     <header class="header">
         <h1 class="fw-bold">Character</h1>
         <button mat-stroked-button (click)="navigateToHome()">Back</button>
@@ -14,9 +14,11 @@
 
             <div>
                 <h3 class="fw-bold">Films</h3>
-                <mat-tab-group animationDuration="0ms">
+
+                <mat-progress-bar mode="indeterminate" *ngIf="films.length === 0"></mat-progress-bar>
+
+                <mat-tab-group animationDuration="0ms" *ngIf="films.length > 0">
                     <mat-tab *ngFor="let film of films" label="{{film.title}}">
-                        <p>{{ film.director }}</p>
                         <p class="fw-bold">{{ film.director }}</p>
                         <small>Directior</small>
                     </mat-tab>
