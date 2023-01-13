@@ -1,7 +1,27 @@
-<div class="container mt-5">
-    <h1>Star Wars Characters</h1>
-    <p>List of the Star Wars saga main characters</p>
-    <div class="list-group">
+<div class="container mt-5 pb-5">
+    <header>
+        <h1>Star Wars Characters</h1>
+        <p>List of the Star Wars Saga main characters</p>
+    </header>
+
+    <mat-button-toggle-group (change)="toggleView(group.value)" #group="matButtonToggleGroup" value="card">
+        <mat-button-toggle value="card">
+            <mat-icon>view_module</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="grid">
+            <mat-icon>view_list</mat-icon>
+        </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div *ngIf="people.length === 0">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="people.length > 0 && !withGridView" class="mt-5 cardsContainer">
         <app-card *ngFor="let person of people" [person]="person"></app-card>
+    </div>
+
+    <div *ngIf="people.length > 0 && withGridView" class="mt-5">
+        <app-grid [people]="people" [displayedColumns]="displayedColumns"></app-grid>
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Film } from '../models/film.interface';
 import { Person } from '../models/person.interface';
 
 type ApiResponse = {
@@ -25,5 +26,9 @@ export class DataService {
 
   getPersonById(id: string): Observable<Person> {
     return this.http.get<Person>(this.apiUrl + '/' + id);
+  }
+
+  getFilmById(id: string): Observable<Film> {
+    return this.http.get<Film>('https://swapi.dev/api/films/' + id);
   }
 }

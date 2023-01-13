@@ -1,1 +1,20 @@
-<p>grid works!</p>
+<table mat-table [dataSource]="people" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"><strong> {{element.name}} </strong></td>
+    </ng-container>
+    <ng-container matColumnDef="birth_year">
+        <th mat-header-cell *matHeaderCellDef> Birth Year </th>
+        <td mat-cell *matCellDef="let element"> {{element.birth_year}} </td>
+    </ng-container>
+    <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+    </ng-container>
+    <ng-container matColumnDef="mass">
+        <th mat-header-cell *matHeaderCellDef> Mass </th>
+        <td mat-cell *matCellDef="let element"> {{element.mass}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr (click)="navigateToDetails(row.url)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

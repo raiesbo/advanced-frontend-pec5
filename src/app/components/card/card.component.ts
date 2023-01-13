@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Person } from 'src/app/models/person.interface';
 
 @Component({
@@ -8,11 +9,15 @@ import { Person } from 'src/app/models/person.interface';
 })
 export class CardComponent implements OnInit {
   @Input() person!: Person;
-  id!: string;
+  private id!: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.person.url.split('/').at(-2) || '';
+  }
+
+  navigateToDetails(): void {
+    this.router.navigateByUrl(`/person/${this.id}`);
   }
 }

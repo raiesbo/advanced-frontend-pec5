@@ -1,4 +1,12 @@
-<a class="list-group-item list-group-item-action animate__animated animate__bounce animate__fadeIn"
-    [routerLink]="['/person', id]">
-    <h3>{{person.name}}</h3>
-</a>
+<mat-card class="list-group-item-action animate__animated animate__bounce animate__fadeIn"
+    (click)="navigateToDetails()">
+    <mat-card-header class="cardHeader">
+        <mat-card-title>{{person.name}}</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>Birth Year: {{person.birth_year}}</p>
+        <p>Gender: {{person.gender}}</p>
+        <p>Mass: {{person.mass}}</p>
+    </mat-card-content>
+</mat-card>
