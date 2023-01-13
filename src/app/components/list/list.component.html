@@ -13,9 +13,7 @@
         </mat-button-toggle>
     </mat-button-toggle-group>
 
-    <div *ngIf="people.length === 0">
-        <mat-spinner></mat-spinner>
-    </div>
+    <app-spinner [isVisible]="people.length === 0"></app-spinner>
 
     <div *ngIf="people.length > 0 && !withGridView" class="mt-5 cardsContainer">
         <app-card *ngFor="let person of people" [person]="person"></app-card>

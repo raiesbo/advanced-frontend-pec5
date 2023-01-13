@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
@@ -20,6 +22,8 @@ import { CardComponent } from './components/card/card.component';
 import { DetailsComponent } from './components/details/details.component';
 import { GridComponent } from './components/grid/grid.component';
 import { ListComponent } from './components/list/list.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { ListComponent } from './components/list/list.component';
     ListComponent,
     DetailsComponent,
     GridComponent,
-    CardComponent
+    CardComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +46,9 @@ import { ListComponent } from './components/list/list.component';
     FormsModule,
     MatTableModule,
     MatProgressSpinnerModule,
-    MatListModule,
+    MatProgressBarModule,
     MatSnackBarModule,
+    MatTabsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production, //environment.production, // !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
@@ -50,7 +56,7 @@ import { ListComponent } from './components/list/list.component';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [{ provide: APP_BASE_HREF, useValue: environment.production ? '/advanced-frontend-pec5' : '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

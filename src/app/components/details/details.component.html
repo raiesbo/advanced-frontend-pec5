@@ -1,22 +1,27 @@
 <div class="container mt-5">
-    <h1>Character</h1>
+    <header class="header">
+        <h1 class="fw-bold">Character</h1>
+        <a mat-stroked-button href="..">Back</a>
+    </header>
 
     <div class="row animate__animated animate__bounce animate__fadeIn">
-        <div *ngIf="!person">
-            <mat-spinner></mat-spinner>
-        </div>
+
+        <app-spinner [isVisible]="!person"></app-spinner>
 
         <div *ngIf="person" class="col-md-9 animate__animated animate__bounce animate__fadeIn">
             <p><strong>Identifier:</strong> {{ id }}</p>
             <p><strong>Name:</strong> {{ person.name }}</p>
-            <p><strong>Identifier:</strong> {{ id }}</p>
-            <p><strong>Identifier:</strong> {{ id }}</p>
-            <p><strong>Identifier:</strong> {{ id }}</p>
-            <p><strong>Identifier:</strong> {{ id }}</p>
-        </div>
 
-        <div class="col-md-3">
-            <a href=".." class="btn btn-danger">Back</a>
+            <div>
+                <h3 class="fw-bold">Films</h3>
+                <mat-tab-group animationDuration="0ms">
+                    <mat-tab *ngFor="let film of films" label="{{film.title}}">
+                        <p>{{ film.director }}</p>
+                        <p class="fw-bold">{{ film.director }}</p>
+                        <small>Directior</small>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
         </div>
     </div>
 </div>
