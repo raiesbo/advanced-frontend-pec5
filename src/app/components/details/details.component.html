@@ -12,7 +12,7 @@
             <header class="d-flex justify-content-around align-items-center mb-5">
                 <h2 class="fw-bold text-xl-left">{{ person.name }}</h2>
                 <img src="https://robohash.org/api/robot/{{id}}" alt="Character image"
-                    style="height: 200px; object-fit: scale-down;">
+                    style="height: 150px; object-fit: scale-down;">
             </header>
 
             <div class="d-flex justify-content-center">
@@ -25,20 +25,20 @@
                 <h3 class="fw-bold">Information</h3>
                 <mat-list>
                     <mat-list-item>
-                        <p><small><i>Id:</i></small> {{id}}</p>
+                        <p class="item"><small><i>Id:</i></small> {{id}}</p>
                     </mat-list-item>
                     <mat-list-item>
-                        <p><small><i>Birth Year:</i></small> {{person.birth_year}}</p>
+                        <p class="item"><small><i>Birth Year:</i></small> {{person.birth_year}}</p>
                     </mat-list-item>
                     <mat-list-item>
-                        <p><small><i>Gender:</i></small> {{person.gender}}</p>
+                        <p class="item"><small><i>Gender:</i></small> {{person.gender}}</p>
                     </mat-list-item>
                     <mat-list-item>
-                        <p><small><i>Mass:</i></small> {{person.mass}}</p>
+                        <p class="item"><small><i>Mass:</i></small> {{person.mass}}</p>
                     </mat-list-item>
                 </mat-list>
 
-                <h3 class="fw-bold">Films</h3>
+                <h3 class="fw-bold mt-3">Films</h3>
                 <mat-progress-bar mode="indeterminate" *ngIf="films.length === 0"></mat-progress-bar>
                 <mat-tab-group animationDuration="0ms" *ngIf="films.length > 0">
                     <mat-tab *ngFor="let film of films" label="{{film.title}}">

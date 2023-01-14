@@ -32,8 +32,7 @@ export class ListComponent implements OnInit {
       this.people = result.results;
     }, (error: any) => {
       console.log(error);
-
-      this.openSnackBar(error.message)
+      this.openSnackBar(error.message);
     })
   }
 
@@ -42,6 +41,8 @@ export class ListComponent implements OnInit {
   }
 
   openSnackBar(message: string) {
-    this._snackBar.open(message);
+    this._snackBar.open(`${message}. Please, reload the page.`, 'X', {
+      duration: 5000,
+    });
   }
 }

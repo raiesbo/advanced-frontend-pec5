@@ -7,9 +7,11 @@
     <mat-button-toggle-group (change)="toggleView(group.value)" #group="matButtonToggleGroup" value="card">
         <mat-button-toggle value="card">
             <mat-icon>view_module</mat-icon>
+            <span style="position: absolute; opacity: 0;">Card view</span>
         </mat-button-toggle>
         <mat-button-toggle value="grid">
             <mat-icon>view_list</mat-icon>
+            <span style="position: absolute; opacity: 0;">List view</span>
         </mat-button-toggle>
     </mat-button-toggle-group>
 
