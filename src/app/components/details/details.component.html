@@ -8,25 +8,60 @@
 
         <app-spinner [isVisible]="!person"></app-spinner>
 
-        <section *ngIf="person" class="col-md-9 animate__animated animate__bounce animate__fadeIn">
-            <header>
-                <h2 class="fw-bold">{{ person.name }}</h2>
-                <img src="https://robohash.org/api/robot/{{id}}" alt="Character image">
+        <section *ngIf="person" class="animate__animated animate__bounce animate__fadeIn">
+            <header class="d-flex justify-content-around align-items-center mb-5">
+                <h2 class="fw-bold text-xl-left">{{ person.name }}</h2>
+                <img src="https://robohash.org/api/robot/{{id}}" alt="Character image"
+                    style="height: 200px; object-fit: scale-down;">
             </header>
 
-            <button mat-raised-button color="primary" (click)="toogleDetailsView()">
-                {{areDetailsVisible ? "Show less details" : "Show more details"}}
-            </button>
+            <div class="d-flex justify-content-center">
+                <button mat-raised-button color="primary" (click)="toogleDetailsView()">
+                    {{areDetailsVisible ? "Show less details" : "Show more details"}}
+                </button>
+            </div>
 
             <div class="details" *ngIf="areDetailsVisible">
+                <h3 class="fw-bold">Information</h3>
+                <mat-list>
+                    <mat-list-item>
+                        <p><small><i>Id:</i></small> {{id}}</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p><small><i>Birth Year:</i></small> {{person.birth_year}}</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p><small><i>Gender:</i></small> {{person.gender}}</p>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p><small><i>Mass:</i></small> {{person.mass}}</p>
+                    </mat-list-item>
+                </mat-list>
+
                 <h3 class="fw-bold">Films</h3>
-
                 <mat-progress-bar mode="indeterminate" *ngIf="films.length === 0"></mat-progress-bar>
-
                 <mat-tab-group animationDuration="0ms" *ngIf="films.length > 0">
                     <mat-tab *ngFor="let film of films" label="{{film.title}}">
-                        <p class="fw-bold">{{ film.director }}</p>
-                        <small>Directior</small>
+                        <mat-list>
+                            <mat-list-item>
+                                <p>
+                                    <small>Episode number:</small>&nbsp;&nbsp;
+                                    <span class="fw-bold">{{film.episode_id}}</span>
+                                </p>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <p>
+                                    <small>Directior:</small>&nbsp;&nbsp;
+                                    <span class="fw-bold">{{film.director}}</span>
+                                </p>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <p>
+                                    <small>Producers:</small>&nbsp;&nbsp;
+                                    <span class="fw-bold">{{film.producer}}</span>
+                                </p>
+                            </mat-list-item>
+                        </mat-list>
                     </mat-tab>
                 </mat-tab-group>
             </div>

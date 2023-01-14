@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -48,6 +49,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     MatProgressBarModule,
     MatSnackBarModule,
     MatTabsModule,
+    MatListModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production, //environment.production, // !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable

@@ -3,11 +3,19 @@
     <mat-card-header class="cardHeader">
         <img mat-card-avatar class="example-header-image" src="https://robohash.org/api/robot/{{id}}" />
         <mat-card-title>{{person.name}}</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        <mat-card-subtitle>Films: {{person.films.length}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <p>Birth Year: {{person.birth_year}}</p>
-        <p>Gender: {{person.gender}}</p>
-        <p>Mass: {{person.mass}}</p>
+        <mat-list>
+            <mat-list-item>
+                <p><small><i>Birth Year:</i></small> {{person.birth_year}}</p>
+            </mat-list-item>
+            <mat-list-item>
+                <p><small><i>Gender:</i></small> {{person.gender}}</p>
+            </mat-list-item>
+            <mat-list-item>
+                <p><small><i>Mass:</i></small> {{person.mass}}</p>
+            </mat-list-item>
+        </mat-list>
     </mat-card-content>
 </mat-card>
