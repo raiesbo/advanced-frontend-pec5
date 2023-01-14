@@ -1,7 +1,8 @@
 <mat-card class="list-group-item-action animate__animated animate__bounce animate__fadeIn"
     (click)="navigateToDetails()">
     <mat-card-header class="cardHeader">
-        <img mat-card-avatar class="example-header-image" src="https://robohash.org/api/robot/{{id}}" />
+        <img mat-card-avatar class="example-header-image" src="https://robohash.org/api/robot/{{id}}"
+            alt="char profile image" />
         <mat-card-title>{{person.name}}</mat-card-title>
         <mat-card-subtitle>Films: {{person.films.length}}</mat-card-subtitle>
     </mat-card-header>
