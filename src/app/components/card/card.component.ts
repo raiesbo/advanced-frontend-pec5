@@ -9,7 +9,7 @@ import { Person } from 'src/app/models/person.interface';
 })
 export class CardComponent implements OnInit {
   @Input() person!: Person;
-  private id!: string;
+  id!: string;
 
   constructor(private router: Router) { }
 

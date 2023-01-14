@@ -30,7 +30,6 @@ export class DetailsComponent implements OnInit {
     if (this.id) {
       this.dataService.getPersonById(this.id).subscribe((result) => {
         this.person = result;
-        this.loadFilms();
       }, (error) => {
         console.log(error)
       })
@@ -57,6 +56,8 @@ export class DetailsComponent implements OnInit {
 
   toogleDetailsView(): void {
     this.areDetailsVisible = !this.areDetailsVisible;
+
+    if (this.areDetailsVisible && this.films.length === 0) this.loadFilms();
   }
 
   navigateToHome(): void {

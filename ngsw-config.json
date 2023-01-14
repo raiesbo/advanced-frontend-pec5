@@ -26,6 +26,9 @@
         "files": [
           "/assets/**",
           "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+        ],
+        "urls": [
+          "https://robohash.org/api/**"
         ]
       }
     }
@@ -40,7 +43,7 @@
         "maxSize": 10,
         "maxAge": "1h",
         "timeout": "1s",
-        "strategy": "freshness"
+        "strategy": "performance"
       }
     }
   ]

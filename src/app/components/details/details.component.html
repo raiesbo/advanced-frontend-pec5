@@ -8,11 +8,17 @@
 
         <app-spinner [isVisible]="!person"></app-spinner>
 
-        <div *ngIf="person" class="col-md-9 animate__animated animate__bounce animate__fadeIn">
-            <p><strong>Identifier:</strong> {{ id }}</p>
-            <p><strong>Name:</strong> {{ person.name }}</p>
+        <section *ngIf="person" class="col-md-9 animate__animated animate__bounce animate__fadeIn">
+            <header>
+                <h2 class="fw-bold">{{ person.name }}</h2>
+                <img src="https://robohash.org/api/robot/{{id}}" alt="Character image">
+            </header>
 
-            <div>
+            <button mat-raised-button color="primary" (click)="toogleDetailsView()">
+                {{areDetailsVisible ? "Show less details" : "Show more details"}}
+            </button>
+
+            <div class="details" *ngIf="areDetailsVisible">
                 <h3 class="fw-bold">Films</h3>
 
                 <mat-progress-bar mode="indeterminate" *ngIf="films.length === 0"></mat-progress-bar>
@@ -24,6 +30,6 @@
                     </mat-tab>
                 </mat-tab-group>
             </div>
-        </div>
+        </section>
     </div>
 </div>
